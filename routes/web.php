@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CapthaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/login', [LoginController::class, 'login'])->name('login.post');
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
+    Route::get('/captcha/generate', [CapthaController::class, 'generate'])->name('captcha.generate');
 });
 
 Route::group(['middleware' => 'auth'], function () {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Auth\Traits;
+namespace App\Traits;
 
 use Illuminate\Http\Request;
 
