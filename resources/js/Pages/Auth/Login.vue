@@ -36,7 +36,7 @@ function handleInput() {
 <template>
 
     <Head title="Login" />
-    <div class="border p-5 w-[400px]">
+    <div class="border p-5 w-[600px]">
         <div class="text-center text-2xl font-semibold">Login</div>
         <div class="text-center">Login Form</div>
         <form @submit.prevent="handleSubmit">
@@ -56,19 +56,23 @@ function handleInput() {
                     {{ form.errors.password }}
                 </div>
             </div>
-            <div class="mb-3">
-                <div class="font-semibold">Captcha:</div>
-                <div class="flex items-center gap-2 mb-2">
-                    <img :src="captcha.image" alt="CAPTCHA" class="border" />
-                    <button type="button" @click="captcha.refresh"
-                        class="underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
-                        Refresh
-                    </button>
+            <div class="grid grid-cols-2 gap-4 items-end mb-3">
+                <div>
+                    <div class="font-semibold mb-2">Captcha:</div>
+                    <div class="flex items-center gap-2">
+                        <img :src="captcha.image" alt="CAPTCHA" class="border" />
+                        <button type="button" @click="captcha.refresh"
+                            class="underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
+                            Refresh
+                        </button>
+                    </div>
                 </div>
-                <input type="text" id="captcha" v-model="form.captcha"
-                    class="w-full border focus:ring-0 focus:outline-none" placeholder="Enter the code shown above" />
-                <div v-if="form.errors.captcha" class="mt-1 text-red-500">
-                    {{ form.errors.captcha }}
+                <div>
+                    <input type="text" id="captcha" v-model="form.captcha"
+                        class="w-full border focus:ring-0 focus:outline-none" placeholder="Enter the code shown above" />
+                    <div v-if="form.errors.captcha" class="mt-1 text-red-500">
+                        {{ form.errors.captcha }}
+                    </div>
                 </div>
             </div>
             <div class="text-center">

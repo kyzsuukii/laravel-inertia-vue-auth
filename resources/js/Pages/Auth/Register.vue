@@ -43,24 +43,26 @@ function handleInput(field: string) {
 <template>
 
     <Head title="Register" />
-    <div class="border p-5 w-[400px]">
+    <div class="border p-5 w-[600px]">
         <div class="text-center text-2xl font-semibold">Register</div>
         <div class="text-center">Register Form</div>
         <form @submit.prevent="handleSubmit">
-            <div class="mb-3">
-                <div class="font-semibold">Name:</div>
-                <input type="text" id="name" v-model="form.name" @input="handleInput('name')"
-                    class="w-full border focus:ring-0 focus:outline-none" />
-                <div v-if="form.errors.name" class="mt-1 text-red-500">
-                    {{ form.errors.name }}
+            <div class="grid grid-cols-2 gap-4">
+                <div class="mb-3">
+                    <div class="font-semibold">Name:</div>
+                    <input type="text" id="name" v-model="form.name" @input="handleInput('name')"
+                        class="w-full border focus:ring-0 focus:outline-none" />
+                    <div v-if="form.errors.name" class="mt-1 text-red-500">
+                        {{ form.errors.name }}
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <div class="font-semibold">Username:</div>
-                <input type="text" id="username" v-model="form.username" @input="handleInput('username')"
-                    class="w-full border focus:ring-0 focus:outline-none" />
-                <div v-if="form.errors.username" class="mt-1 text-red-500">
-                    {{ form.errors.username }}
+                <div class="mb-3">
+                    <div class="font-semibold">Username:</div>
+                    <input type="text" id="username" v-model="form.username" @input="handleInput('username')"
+                        class="w-full border focus:ring-0 focus:outline-none" />
+                    <div v-if="form.errors.username" class="mt-1 text-red-500">
+                        {{ form.errors.username }}
+                    </div>
                 </div>
             </div>
             <div class="mb-3">
@@ -71,35 +73,41 @@ function handleInput(field: string) {
                     {{ form.errors.email }}
                 </div>
             </div>
-            <div class="mb-3">
-                <div class="font-semibold">Password:</div>
-                <input type="password" id="password" v-model="form.password"
-                    class="w-full border focus:ring-0 focus:outline-none" />
-                <div v-if="form.errors.password" class="mt-1 text-red-500">
-                    {{ form.errors.password }}
+            <div class="grid grid-cols-2 gap-4">
+                <div class="mb-3">
+                    <div class="font-semibold">Password:</div>
+                    <input type="password" id="password" v-model="form.password"
+                        class="w-full border focus:ring-0 focus:outline-none" />
+                    <div v-if="form.errors.password" class="mt-1 text-red-500">
+                        {{ form.errors.password }}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="font-semibold">Password Confirmation:</div>
+                    <input type="password" id="password_confirmation" v-model="form.password_confirmation"
+                        class="w-full border focus:ring-0 focus:outline-none" />
+                    <div v-if="form.errors.password_confirmation" class="mt-1 text-red-500">
+                        {{ form.errors.password_confirmation }}
+                    </div>
                 </div>
             </div>
-            <div class="mb-3">
-                <div class="font-semibold">Password Confirmation:</div>
-                <input type="password" id="password_confirmation" v-model="form.password_confirmation"
-                    class="w-full border focus:ring-0 focus:outline-none" />
-                <div v-if="form.errors.password_confirmation" class="mt-1 text-red-500">
-                    {{ form.errors.password_confirmation }}
+            <div class="grid grid-cols-2 gap-4 items-end mb-3">
+                <div>
+                    <div class="font-semibold mb-2">Captcha:</div>
+                    <div class="flex items-center gap-2">
+                        <img :src="captcha.image" alt="CAPTCHA" class="border" />
+                        <button type="button" @click="captcha.refresh"
+                            class="underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
+                            Refresh
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="mb-3">
-                <div class="font-semibold">Captcha:</div>
-                <div class="flex items-center gap-2 mb-2">
-                    <img :src="captcha.image" alt="CAPTCHA" class="border" />
-                    <button type="button" @click="captcha.refresh"
-                        class="underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
-                        Refresh
-                    </button>
-                </div>
-                <input type="text" id="captcha" v-model="form.captcha"
-                    class="w-full border focus:ring-0 focus:outline-none" placeholder="Enter the code shown above" />
-                <div v-if="form.errors.captcha" class="mt-1 text-red-500">
-                    {{ form.errors.captcha }}
+                <div>
+                    <input type="text" id="captcha" v-model="form.captcha"
+                        class="w-full border focus:ring-0 focus:outline-none" placeholder="Enter the code shown above" />
+                    <div v-if="form.errors.captcha" class="mt-1 text-red-500">
+                        {{ form.errors.captcha }}
+                    </div>
                 </div>
             </div>
             <div class="text-center">
