@@ -4,7 +4,7 @@ import { onMounted } from 'vue'
 
 const form = useForm({
     login: '',
-    password: ''
+    password: '',
 })
 
 onMounted(() => {
@@ -15,7 +15,7 @@ function handleSubmit() {
     form.post('/login', {
         onSuccess: () => {
             localStorage.removeItem('login')
-        }
+        },
     })
 }
 
@@ -33,31 +33,44 @@ function handleInput() {
             <form @submit.prevent="handleSubmit">
                 <div class="mb-3">
                     <div class="font-semibold">Login:</div>
-                    <input 
-                        type="text" 
-                        id="login" 
-                        v-model="form.login" 
+                    <input
+                        type="text"
+                        id="login"
+                        v-model="form.login"
                         @input="handleInput"
                         class="w-full border focus:ring-0 focus:outline-none"
                     />
-                    <div v-if="form.errors.login" class="mt-1">{{ form.errors.login }}</div>
+                    <div v-if="form.errors.login" class="mt-1">
+                        {{ form.errors.login }}
+                    </div>
                 </div>
                 <div class="mb-3">
                     <div class="font-semibold">Password:</div>
-                    <input 
-                        type="password" 
-                        id="password" 
+                    <input
+                        type="password"
+                        id="password"
                         v-model="form.password"
                         class="w-full border focus:ring-0 focus:outline-none"
                     />
-                    <div v-if="form.errors.password" class="mt-1">{{ form.errors.password }}</div>
+                    <div v-if="form.errors.password" class="mt-1">
+                        {{ form.errors.password }}
+                    </div>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="underline cursor-pointer bg-transparent p-0 border-0">Login</button>
+                    <button
+                        type="submit"
+                        class="underline cursor-pointer bg-transparent p-0 border-0"
+                    >
+                        Login
+                    </button>
                 </div>
             </form>
             <div class="text-center">
-                <Link href="/register" class="underline cursor-pointer bg-transparent p-0 border-0">Create an account</Link>
+                <Link
+                    href="/register"
+                    class="underline cursor-pointer bg-transparent p-0 border-0"
+                    >Create an account</Link
+                >
             </div>
         </div>
     </div>

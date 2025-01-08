@@ -5,7 +5,7 @@ import '@fontsource/geist-sans'
 import '@fontsource/geist-mono'
 
 createInertiaApp({
-    resolve: name => {
+    resolve: (name) => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
         return pages[`./Pages/${name}.vue`]
     },
