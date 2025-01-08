@@ -35,11 +35,11 @@ function handleInput(field: string) {
     <Head title="Register" />
     <div class="flex justify-center items-center min-h-screen">
         <div class="border p-5 w-[400px]">
-            <div class="text-center">Register</div>
+            <div class="text-center text-2xl font-semibold">Register</div>
             <div class="text-center">Register Form</div>
             <form @submit.prevent="handleSubmit">
                 <div class="mb-3">
-                    <div>Name:</div>
+                    <div class="font-semibold">Name:</div>
                     <input 
                         type="text" 
                         id="name" 
@@ -50,7 +50,7 @@ function handleInput(field: string) {
                     <div v-if="form.errors.name" class="mt-1">{{ form.errors.name }}</div>
                 </div>
                 <div class="mb-3">
-                    <div>Username:</div>
+                    <div class="font-semibold">Username:</div>
                     <input 
                         type="text" 
                         id="username" 
@@ -61,7 +61,7 @@ function handleInput(field: string) {
                     <div v-if="form.errors.username" class="mt-1">{{ form.errors.username }}</div>
                 </div>
                 <div class="mb-3">
-                    <div>Email:</div>
+                    <div class="font-semibold">Email:</div>
                     <input 
                         type="email" 
                         id="email" 
@@ -72,7 +72,7 @@ function handleInput(field: string) {
                     <div v-if="form.errors.email" class="mt-1">{{ form.errors.email }}</div>
                 </div>
                 <div class="mb-3">
-                    <div>Password:</div>
+                    <div class="font-semibold">Password:</div>
                     <input 
                         type="password" 
                         id="password" 
@@ -82,7 +82,7 @@ function handleInput(field: string) {
                     <div v-if="form.errors.password" class="mt-1">{{ form.errors.password }}</div>
                 </div>
                 <div class="mb-3">
-                    <div>Password Confirmation:</div>
+                    <div class="font-semibold">Password Confirmation:</div>
                     <input 
                         type="password" 
                         id="password_confirmation" 

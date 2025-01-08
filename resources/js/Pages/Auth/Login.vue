@@ -28,11 +28,11 @@ function handleInput() {
     <Head title="Login" />
     <div class="flex justify-center items-center min-h-screen">
         <div class="border p-5 w-[400px]">
-            <div class="text-center">Login</div>
+            <div class="text-center text-2xl font-semibold">Login</div>
             <div class="text-center">Login Form</div>
             <form @submit.prevent="handleSubmit">
                 <div class="mb-3">
-                    <div>Login:</div>
+                    <div class="font-semibold">Login:</div>
                     <input 
                         type="text" 
                         id="login" 
@@ -43,7 +43,7 @@ function handleInput() {
                     <div v-if="form.errors.login" class="mt-1">{{ form.errors.login }}</div>
                 </div>
                 <div class="mb-3">
-                    <div>Password:</div>
+                    <div class="font-semibold">Password:</div>
                     <input 
                         type="password" 
                         id="password" 
