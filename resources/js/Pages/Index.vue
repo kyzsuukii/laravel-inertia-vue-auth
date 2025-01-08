@@ -7,7 +7,6 @@ const logout = () => {
 
 const user = usePage().props.auth.user
 
-console.log(user)
 </script>
 
 <template>
