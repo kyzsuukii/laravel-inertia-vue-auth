@@ -36,7 +36,7 @@ function handleInput() {
 <template>
 
     <Head title="Login" />
-    <div class="border p-5 w-[600px]">
+    <div class="border p-5 w-full max-w-[600px] mx-auto">
         <div class="text-center text-2xl font-semibold">Login</div>
         <div class="text-center">Login Form</div>
         <form @submit.prevent="handleSubmit">
@@ -56,13 +56,13 @@ function handleInput() {
                     {{ form.errors.password }}
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 items-end mb-3">
+            <div class="grid sm:grid-cols-2 grid-cols-1 gap-4 items-end mb-3">
                 <div>
                     <div class="font-semibold mb-2">Captcha:</div>
-                    <div class="flex items-center gap-2">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                         <img :src="captcha.image" alt="CAPTCHA" class="border" />
                         <button type="button" @click="captcha.refresh"
-                            class="underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
+                            class="text-sm underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
                             Refresh
                         </button>
                     </div>

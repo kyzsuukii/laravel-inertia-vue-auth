@@ -43,11 +43,11 @@ function handleInput(field: string) {
 <template>
 
     <Head title="Register" />
-    <div class="border p-5 w-[600px]">
+    <div class="border p-5 w-full max-w-[600px] mx-auto">
         <div class="text-center text-2xl font-semibold">Register</div>
         <div class="text-center">Register Form</div>
         <form @submit.prevent="handleSubmit">
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
                 <div class="mb-3">
                     <div class="font-semibold">Name:</div>
                     <input type="text" id="name" v-model="form.name" @input="handleInput('name')"
@@ -73,7 +73,7 @@ function handleInput(field: string) {
                     {{ form.errors.email }}
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
                 <div class="mb-3">
                     <div class="font-semibold">Password:</div>
                     <input type="password" id="password" v-model="form.password"
@@ -91,13 +91,13 @@ function handleInput(field: string) {
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 items-end mb-3">
+            <div class="grid sm:grid-cols-2 grid-cols-1 gap-4 items-end mb-3">
                 <div>
                     <div class="font-semibold mb-2">Captcha:</div>
-                    <div class="flex items-center gap-2">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                         <img :src="captcha.image" alt="CAPTCHA" class="border" />
                         <button type="button" @click="captcha.refresh"
-                            class="underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
+                            class="text-sm underline cursor-pointer bg-transparent p-0 border-0" :disabled="captcha.isLoading">
                             Refresh
                         </button>
                     </div>
